@@ -53,8 +53,7 @@ subprojects {
         testAnnotationProcessor 'org.projectlombok:lombok'
 		
 		// Actuator
-		implementation 
-		'org.springframework.boot:spring-boot-starter-actuator'
+		implementation 'org.springframework.boot:spring-boot-starter-actuator'
     }
 
     // Test Configuration
@@ -74,7 +73,7 @@ subprojects {
         }
 		finalizedBy jacocoTestReport
     }
-	
+
 	jacocoTestReport {
         dependsOn test
         reports {
@@ -96,6 +95,8 @@ subprojects {
             }))
         }
     }
+	
+
 }
 
 //-- Biz와 common 모듈이 아닌 경우 인프라 관련 라이브러리 추가
@@ -133,4 +134,3 @@ configure(subprojects.findAll { it.name.endsWith('-biz') || it.name == 'common' 
     bootJar.enabled = false
     jar.enabled = true
 }
-
